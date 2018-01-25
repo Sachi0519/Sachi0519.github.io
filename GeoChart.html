@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Google Chart Toolsの練習</title>
+</head>
+
+<body>
+    <h1>平成28年牛乳乳製品統計</h1>
+    <h2>生乳生産量（都道府県別）</h2>
+    <div id="drawChartRuby" style="width: 1200px; padding: 0; margin: 0; border: 0;"></div>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+        // http://qiita.com/sadapon2008/items/deeb7cf017bcceecc9b5
+        // を引用し、修正を加えたもの
+        
+        // Load the Visualization API and the piechart package.
+        google.load('visualization', '1.0', {
+            'packages': ['geochart'],
+            'language': 'ja'
+        });
+
+        google.setOnLoadCallback(graphChart);
+
+        function graphChart() {
+            var data_ruby = google.visualization.arrayToDataTable(
+[
+['都道府県', '生産量（t）'],
+['北海道', 3922685],
+['青森', 63652],
+['岩手', 215551],
+['宮城', 117478],
+['秋田', 28064],
+['山形', 66816],
+['福島', 74873],
+['茨城', 161079],
+['栃木', 330208],
+['群馬', 255197],
+['埼玉', 57338],
+['千葉', 213809],
+['東京', 10508],
+['神奈川', 37779],
+['新潟', 47901],
+['富山', 12975],
+['石川', 20996],
+['福井', 6274],
+['山梨', 17715],
+['長野', 102739],
+['岐阜', 39657],
+['静岡', 90925],
+['愛知', 181465],
+['三重', 53243],
+['滋賀', 19986],
+['京都', 29753],
+['大阪', 10138],
+['兵庫', 88779],
+['奈良', 25332],
+['和歌山', 5345],
+['鳥取', 56451],
+['島根', 67102],
+['岡山', 93532],
+['広島', 54540],
+['山口', 17329],
+['徳島', 31815],
+['香川', 35772],
+['愛媛', 34881],
+['高知', 22889],
+['福岡', 80596],
+['佐賀', 15786],
+['長崎', 51943],
+['熊本', 249740],
+['大分', 74168],
+['宮崎', 84955],
+['鹿児島', 88146],
+['沖縄', 25812]
+]
+            );
+
+            
+
+            var option = {
+                region: 'JP',
+                resolution: 'provinces',
+                colorAxis: {
+                    colors: ['white', 'blue', '#00853f', 'black', 'yellow', '#e31b23']
+                },
+                backgroundColor: '#81d4fa',
+                datalessRegionColor: '#f8bbd0',
+                defaultColor: '#f5f5f5'
+            };
+
+            var graph_ruby = new google.visualization.GeoChart(document.getElementById('drawChartRuby'));
+            graph_ruby.draw(data_ruby, option);
+
+            var graph_php = new google.visualization.GeoChart(document.getElementById('drawChartPHP'));
+            graph_php.draw(data_php, option);
+        }
+    </script>
+     <div id="piechart" style="width: 900px; height: 500px;"></div>
+
+ <html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['北海道',     53],
+          ['千葉',      3],
+          ['岩手',  3],
+          ['栃木', 5],
+          ['群馬',    4],
+          ['愛知', 3],
+          ['熊本', 4],
+          ['その他', 25]
+        ]);
+
+        var options = {
+          title: '全国生産量に対する割合'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>  
+  
+   <img src="C:/Users/咲智/Desktop/eto_remake_ushi.png" border="0">
+   
+    
+</body>
+
+</html>
